@@ -12,7 +12,7 @@ install_homeassistant_stubs()
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 sys.path.insert(0, BASE_DIR)
-init = importlib.import_module("custom_components.openai_gpt4o_tts.__init__")
+init = importlib.import_module("custom_components.azure_aifoundry_tts.__init__")
 
 
 class DummyConfigEntries:

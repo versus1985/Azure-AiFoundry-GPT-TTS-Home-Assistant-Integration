@@ -1,0 +1,14 @@
+{
+    "domain": "azure_aifoundry_tts",
+    "name": "Azure AI Foundry TTS",
+    "version": "1.0.0", 
+    "author": "versus1985",
+    "documentation": "https://github.com/versus1985/Azure-AiFoundry-GPT-TTS-Home-Assistant-Integration",
+    "requirements": ["aiohttp>=3.9.3"],
+    "codeowners": [
+      "@versus1985"
+    ],
+    "iot_class": "cloud_polling",
+    "config_flow": true
+  }
+  

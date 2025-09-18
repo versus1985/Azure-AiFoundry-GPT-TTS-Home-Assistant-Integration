@@ -16,7 +16,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 sys.path.insert(0, BASE_DIR)
 
 # Import after stubs are in place
-tts_module = importlib.import_module("custom_components.openai_gpt4o_tts.tts")
+tts_module = importlib.import_module("custom_components.azure_aifoundry_tts.tts")
 
 
 class DummyEntry:
@@ -48,7 +48,7 @@ async def _gen_message(text: str) -> AsyncGenerator[str]:
 @pytest.mark.asyncio
 async def test_stream_method_non_sse():
     client = DummyClient()
-    provider = tts_module.OpenAIGPT4oTTSProvider(DummyEntry(), client)
+    provider = tts_module.AzureAIFoundryTTSProvider(DummyEntry(), client)
     req = TTSAudioRequest("en", {"stream_format": "audio"}, _gen_message("hi"))
     resp = await provider.async_stream_tts_audio(req)
     data = b"".join([chunk async for chunk in resp.data_gen])
@@ -60,7 +60,7 @@ async def test_stream_method_non_sse():
 @pytest.mark.asyncio
 async def test_stream_method_sse():
     client = DummyClient()
-    provider = tts_module.OpenAIGPT4oTTSProvider(DummyEntry(), client)
+    provider = tts_module.AzureAIFoundryTTSProvider(DummyEntry(), client)
     req = TTSAudioRequest("en", {"stream_format": "sse"}, _gen_message("hi"))
     resp = await provider.async_stream_tts_audio(req)
     data = b"".join([chunk async for chunk in resp.data_gen])

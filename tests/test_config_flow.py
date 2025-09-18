@@ -12,9 +12,9 @@ install_homeassistant_stubs()
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 sys.path.insert(0, BASE_DIR)
 
-cfg_flow = importlib.import_module("custom_components.openai_gpt4o_tts.config_flow")
-gpt4o = importlib.import_module("custom_components.openai_gpt4o_tts.gpt4o")
-OpenAIGPT4oConfigFlow = cfg_flow.OpenAIGPT4oConfigFlow
+cfg_flow = importlib.import_module("custom_components.azure_aifoundry_tts.config_flow")
+gpt4o = importlib.import_module("custom_components.azure_aifoundry_tts.gpt4o")
+AzureAIFoundryConfigFlow = cfg_flow.AzureAIFoundryConfigFlow
 GPT4oClient = gpt4o.GPT4oClient
 
 
@@ -66,7 +66,7 @@ class DummySession:
 
 @pytest.mark.asyncio
 async def test_api_key_whitespace(monkeypatch):
-    flow = OpenAIGPT4oConfigFlow()
+    flow = AzureAIFoundryConfigFlow()
     result = await flow.async_step_user({"api_key": "  k  "})
     assert result["data"]["api_key"] == "k"
 
@@ -75,7 +75,7 @@ async def test_api_key_whitespace(monkeypatch):
 
     dummy = DummySession()
     monkeypatch.setattr(
-        "custom_components.openai_gpt4o_tts.gpt4o.ClientSession",
+        "custom_components.azure_aifoundry_tts.gpt4o.ClientSession",
         lambda timeout=None: dummy,
     )
 
@@ -89,7 +89,7 @@ async def test_api_key_whitespace(monkeypatch):
 
 @pytest.mark.asyncio
 async def test_stream_format_option():
-    flow = OpenAIGPT4oConfigFlow()
+    flow = AzureAIFoundryConfigFlow()
     result = await flow.async_step_user(
         {"api_key": "k", gpt4o.CONF_STREAM_FORMAT: "sse"}
     )

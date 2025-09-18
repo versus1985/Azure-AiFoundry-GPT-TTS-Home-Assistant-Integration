@@ -36,7 +36,7 @@ DEFAULT_EMOTION = (
     "Subtly expressive; match the content’s sentiment without over‑acting."
 )
 
-# Available voices (same as OpenAI voices)
+# Available voices for Azure AI Foundry
 AZURE_TTS_VOICES = [
     "alloy",
     "ash",

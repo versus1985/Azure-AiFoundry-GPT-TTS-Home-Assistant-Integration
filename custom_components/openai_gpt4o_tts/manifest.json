@@ -1,12 +1,12 @@
 {
-    "domain": "openai_gpt4o_tts",
-    "name": "OpenAI GPT-4o Mini TTS",
-    "version": "1.0.4", 
-    "author": "wifiuk",
-    "documentation": "https://github.com/wifiuk/OpenAI-GPT-4o-Mini-TTS-Home-Assistant-Integration",
+    "domain": "azure_aifoundry_tts",
+    "name": "Azure AI Foundry TTS",
+    "version": "1.0.0", 
+    "author": "versus1985",
+    "documentation": "https://github.com/versus1985/Azure-AiFoundry-GPT-TTS-Home-Assistant-Integration",
     "requirements": ["aiohttp>=3.9.3"],
     "codeowners": [
-      "@wifiuk"
+      "@versus1985"
     ],
     "iot_class": "cloud_polling",
     "config_flow": true

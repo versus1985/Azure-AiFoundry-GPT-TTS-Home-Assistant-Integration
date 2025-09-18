@@ -14,7 +14,7 @@ install_homeassistant_stubs()
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 sys.path.insert(0, BASE_DIR)
 
-gpt4o = importlib.import_module("custom_components.openai_gpt4o_tts.gpt4o")
+gpt4o = importlib.import_module("custom_components.azure_aifoundry_tts.gpt4o")
 GPT4oClient = gpt4o.GPT4oClient
 DEFAULT_VOICE = gpt4o.DEFAULT_VOICE
 
